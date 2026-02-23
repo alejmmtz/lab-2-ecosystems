@@ -1,27 +1,27 @@
 import express, { Router } from 'express';
 import { NODE_ENV, PORT } from './config';
-import { UserRouter } from './features/users/users.router';
+import { PostRouter } from './features/users/post.router';
 import cors from 'cors';
-import { UserController } from './features/users/user.controller';
+import { PostController } from './features/users/post.controller';
 import { errorsMiddleware } from './middlewares/errorsMiddleware';
-import { UserService } from './features/users/user.service';
+import { PostService } from './features/users/post.service';
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!!');
+  res.send('The Backend is up and running for the Posting Feature');
 });
 
 const apiRouter = Router();
 app.use('/api', apiRouter);
 
-const userService = new UserService();
-const userController = new UserController(userService);
+const postService = new PostService();
+const postController = new PostController(postService);
 
-const userRouter = new UserRouter(userController);
-apiRouter.use(userRouter.router);
+const postRouter = new PostRouter(postController);
+apiRouter.use(postRouter.router);
 
 app.use(errorsMiddleware);
 
