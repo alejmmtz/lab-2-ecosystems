@@ -62,9 +62,9 @@ export default function Posts() {
             </p>
             <button
               onClick={() => handleDelete(post.id)}
-              className="mt-4 border-2 border-blue text-blue font-bold py-1 px-4 uppercase text-xs hover:bg-red-500 hover:text-white transition-all cursor-pointer w-fit"
+              className="mt-4 border-2 border-blue text-blue font-bold py-1 px-4 uppercase text-xs hover:bg-green  transition-all duration-700 cursor-pointer "
             >
-              [ Delete Thought ]
+              Delete Thought
             </button>
           </div>
         ))}
