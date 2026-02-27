@@ -7,7 +7,9 @@ export default function Posts() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await fetch("http://localhost:1234/api/posts");
+        const response = await fetch(
+          "https://lab-2-ecosystems.vercel.app/api/posts",
+        );
         const result = await response.json();
         setPosts(result.data || result);
       } catch (error) {
@@ -22,7 +24,7 @@ export default function Posts() {
     if (!window.confirm("Are u sure that you want to Delete? :(")) return;
 
     try {
-      await fetch(`http://localhost:1234/api/posts/${id}`, {
+      await fetch(`https://lab-2-ecosystems.vercel.app/api/posts/${id}`, {
         method: "DELETE",
       });
       setPosts(posts.filter((p) => p.id !== id));

@@ -17,13 +17,16 @@ export default function Create() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:1234/api/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://lab-2-ecosystems.vercel.app/api/posts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
         },
-        body: JSON.stringify(postData),
-      });
+      );
 
       if (response.ok) {
         setPostData({ title: "", description: "", imageUrl: "" } as createPost);
